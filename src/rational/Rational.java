@@ -35,7 +35,10 @@ public class Rational implements Comparable {
      * @param num   numerator of the fraction
      * @param denom denominator of the fraction
      */
-    public Rational(long num, long denom) {
+    public Rational(long num, long denom) throws ArithmeticException{
+        if(denom == 0){
+            throw new ArithmeticException();
+        }
         long gcd = gcd(num, denom);
         setNumerator(num / gcd);
         setDenominator(denom / gcd);
@@ -76,7 +79,18 @@ public class Rational implements Comparable {
      * @param fraction a String containing either a whole number, such as "5" or " -3", or a fraction, such as "8/ -12".
      */
     public Rational(String fraction) throws ArithmeticException {
-        // TODO replace with your code
+        fraction = fraction.replace(" ", "");
+        if(fraction.contains("/")){
+            String[] fractionArray = fraction.split("/");
+            this.numerator = Long.parseLong(fractionArray[0]);
+            this.denominator = Long.parseLong(fractionArray[1]);
+            if(denominator == 0){
+                throw new ArithmeticException();
+            }
+        } else {
+            this.numerator = Long.parseLong(fraction);
+            this.denominator = 1L;
+        }
     }
 
     // DO NOT CHANGE THE VISIBILITY OF THIS METHOD
@@ -160,7 +174,7 @@ public class Rational implements Comparable {
         long num = this.getNumerator();
         long denom = this.getDenominator();
         if (num < 0) {
-            num = this.getNumerator() - (this.getNumerator() * 2);
+            num = this.getNumerator() * -1L;
         }
         return new Rational(num, denom);
     }
@@ -230,6 +244,11 @@ public class Rational implements Comparable {
     }
 
     public static void main(String...args){
-        System.out.print(new Rational().gcd(48, 18));
+        System.out.println(new Rational().gcd(48, 18));
+        String f = new String("Hi   Me");
+        f = f.replace(" ", "");
+        System.out.println(f);
+        new Rational("1/ 0");
     }
+
 }
