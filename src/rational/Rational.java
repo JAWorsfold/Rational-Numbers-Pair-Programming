@@ -55,23 +55,18 @@ public class Rational implements Comparable {
      * @param denom the second number
      * @return the gcd of <tt>num</tt> and <tt>denom</tt>
      */
-    private long gcd(long num, long denom) {
-        long quotient = 1;
-        long remainder = 1;
-        while (remainder != 0) {
-            if (remainder == 1 ) {
-                quotient = num / denom;
-                remainder = num % denom;
-            }
-            quotient = remainder / quotient;
-            remainder = remainder % quotient;
+    public long gcd(long num, long denom) {
+        long currRemainder = num;
+        long nextRemainder = denom;
+        long x;
+        while (nextRemainder != 0){
+            x = nextRemainder;
+            nextRemainder = currRemainder % nextRemainder;
+            currRemainder = x;
         }
-
-        long temp = num % denom;
-        long temp1 = denom % temp;
-
-        return 1L;
+        return currRemainder;
     }
+
 
     /**
      * Allow blanks around (but not within) integers.
@@ -227,5 +222,9 @@ public class Rational implements Comparable {
         Rational rational = (Rational) o;
         return getNumerator() == rational.getNumerator() &&
             getDenominator() == rational.getDenominator();
+    }
+
+    public static void main(String...args){
+        System.out.print(new Rational().gcd(48, 18));
     }
 }

@@ -138,4 +138,12 @@ public class RationalTest {
     }
 
     // Any other tests you feel are appropriate and aren't covered by the above
+
+    /**
+     * Test for gcd method
+     */
+    @Test
+    public void testGcd() {
+        assertEquals(6,new  Rational().gcd(48, 18) );
+    }
 }
