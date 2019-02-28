@@ -58,7 +58,7 @@ public class Rational implements Comparable {
      * @param denom the second number
      * @return the gcd of <tt>num</tt> and <tt>denom</tt>
      */
-    public long gcd(long num, long denom) {
+    private long gcd(long num, long denom) {
         long currRemainder = num;
         long nextRemainder = denom;
         long x;
@@ -243,12 +243,27 @@ public class Rational implements Comparable {
             getDenominator() == rational.getDenominator();
     }
 
+    public boolean byZero(long num){
+        if(num == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public long dummy(long nom, long denom){
+        return gcd(nom, denom);
+    }
+
+    public long[] dummy2(String input){
+        Rational test = new Rational(input);
+        long[] retValue = {test.getNumerator(), test.getDenominator()};
+        return retValue;
+    }
+
     public static void main(String...args){
-        System.out.println(new Rational().gcd(48, 18));
-        String f = new String("Hi   Me");
-        f = f.replace(" ", "");
-        System.out.println(f);
-        new Rational("1/ 0");
+        System.out.println(new Rational().dummy2("4/5"));
     }
 
 }

@@ -54,8 +54,11 @@ public class RationalTest {
      */
     @Test
     public void testConsWithString() {
-        // TODO
-        fail();
+       Rational test = new Rational("4/5");
+        long[] testArray = {4L, 5L};
+        for (int i = 0; i < testArray.length; i++) {
+            assertEquals(testArray[i], test.dummy2("4/5")[i]);
+        }
     }
 
     /**
@@ -93,8 +96,7 @@ public class RationalTest {
 
     @Test
     public void divideByZero() {
-        // TODO
-        fail();
+        assertTrue(new Rational().byZero(0));
     }
 
     @Test
@@ -144,7 +146,7 @@ public class RationalTest {
      */
     @Test
     public void testGcd() {
-        assertEquals(6,new  Rational().gcd(48, 18) );
+        assertEquals(6,new  Rational().dummy(48, 18) );
     }
 
 
