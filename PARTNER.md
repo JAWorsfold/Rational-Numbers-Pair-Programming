@@ -1,8 +1,8 @@
-#### Pair member one: `Fred Bloggs`
+#### Pair member one: `Joe Worsfold`
 
-#### Pair member two: `Nancy Smith`
+#### Pair member two: `Dimitar Yanev`
 
-#### Submitted Code GitHub Classroom userid: `nancy01smith`
+#### Submitted Code GitHub Classroom userid: `jworsf01`
 
 #### Evaluation of Partner:
 
