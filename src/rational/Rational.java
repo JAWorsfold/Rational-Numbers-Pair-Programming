@@ -262,8 +262,4 @@ public class Rational implements Comparable {
         return retValue;
     }
 
-    public static void main(String...args){
-        System.out.println(new Rational().dummy2("4/5"));
-    }
-
 }
