@@ -56,7 +56,20 @@ public class Rational implements Comparable {
      * @return the gcd of <tt>num</tt> and <tt>denom</tt>
      */
     private long gcd(long num, long denom) {
-        // TODO - complete using Euclid's algorithm
+        long quotient = 1;
+        long remainder = 1;
+        while (remainder != 0) {
+            if (remainder == 1 ) {
+                quotient = num / denom;
+                remainder = num % denom;
+            }
+            quotient = remainder / quotient;
+            remainder = remainder % quotient;
+        }
+
+        long temp = num % denom;
+        long temp1 = denom % temp;
+
         return 1L;
     }
 
