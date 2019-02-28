@@ -146,4 +146,6 @@ public class RationalTest {
     public void testGcd() {
         assertEquals(6,new  Rational().gcd(48, 18) );
     }
+
+
 }
